@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta name="viewport" , initial-scale="1.0">
     <title>Weather App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="Stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -17,6 +18,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
+                <br>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -27,7 +29,7 @@
              <div class="col-md-6">
                <ul>
                     <li>
-                       <h5>
+                       <h5 id="city">
                         Namibia
                        </h5> 
                     </li>
@@ -37,52 +39,30 @@
                     <li>
                         Humidity
                     </li>
-                    <li>
+                    <li id="description">
                         Wind
                     </li>
                 </ul> 
             </div>
-            <div class="col-md-6">
-                 <h6 class="Temp">             
-                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="75" fill="currentColor" class="bi bi-brightness-high"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-                </svg>
-                    24° 
-                </h6>   
-               
-            </div>    
+            
+            <div class= "col-md-6">        
+                <div class="clearfix weather-temperature">
+                    
+                    <img src="https://cdn-icons-png.flaticon.com/512/3222/3222672.png" alt= sunny width=50px> <strong class="units" id="temperature">24  </strong>
+                        °C | F
+                </div> 
+
+            </div>
             </div>
            <br>
 
-            <div class=" WeatherForecastPreview row">
-
-                <div class="col">
-                    Wednesday
-                    
-                </div>
-
-                <div class="col">
-                    Thursday
-                </div>
-
-                <div class="col">
-                    Friday
-                </div>
-
-                <div class="col">
-                    Saturday
-                </div>
-
-                <div class="col">
-                    Sunday
-                </div>
-            </div>
-
         </div>
     </div>
+    <small>
+        <a href="https://github.com/adewaal02/Week-7-Project" target="_blank">Open-Sourced</a> by Anel De Waal
+    </small>
 </div>
+
 </body>
 
 <script src="src/script.js"></script>

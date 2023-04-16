@@ -1,21 +1,29 @@
-container {
+.container {
     margin: auto;
     display: block;
-    width: 700px;
+    width: 800px;
+}
+
+.container.units {
+    position: fixed;
+
 }
 
 ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-left: 10px;
 }
 
 h6 {
     font-size: 25px;
 }
 
+.weather-temperature.units {
+    font-size: 50px;
+}
 
-.weatherForcastPreview {
-    margin: auto;
-    display: block;
+.units {
+    padding-left: 20px;
+    font-size: 20px;
 }
