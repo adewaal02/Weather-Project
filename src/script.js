@@ -1,7 +1,7 @@
 function search(city) {
   let apiKey = "4f003o4e6c8fd236a8bea09t025fefec";
 
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=New York&key=4f003o4e6c8fd236a8bea09t025fefec`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=4f003o4e6c8fd236a8bea09t025fefec`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -84,6 +84,7 @@ function getForecast(coordinates) {
   //console.log(apiUrl);
   //axios.get(apiUrl);
 }
+let celsiusTemperature = null;
 
 function displayTemperature(response) {
   console.log(response.data);
@@ -95,28 +96,22 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.temperature.current;
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  iconElement.setAttribute("alt", response.data.condition.description);
 
-  getForecast(response.data.coord);
+  getForecast(response.data.coordinates);
 }
-displayDescription();
 search("New York");
-let form = document.querySelector("#search-form");
+let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
-
-let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
