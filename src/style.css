@@ -34,3 +34,18 @@ h6 {
     padding-left: 20px;
     font-size: 20px;
 }
+
+.weather-forecast {
+    margin-left: 10px;
+    text-align: center;
+}
+
+.weather-forcast-date{
+    font-size: 16px;
+    opacity: 0.6;
+
+}
+
+.weather-forecast-temperature-min {
+    opacity: 0.6;
+}
